@@ -8,6 +8,9 @@ inputMenuLayout = [
                         [sg.Text('The app may look frozen, but it is not. Please be patient.')]
                     ], justification='center')],
                     [sg.Multiline(key='-IN-', size=(60, 10))],
+                    [sg.Column([
+                        [sg.Text('Running SteamCMD for the first time always takes a bit longer.')]
+                    ], justification='center')],
                     [sg.HorizontalSeparator(pad=(0, 10))],
                     [sg.Column([
                         [sg.Button(button_text='Back'), 

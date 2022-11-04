@@ -1,5 +1,4 @@
 === MAIN MENU ===
-Implement steamCMD download
 Choosable appid (Dropdown of popular games and their appid for convenience ?)
 List of alleged compatible games : https://steamdb.info/sub/17906/apps/
 =================
@@ -12,14 +11,15 @@ Support Import / Export input.txt ?
 
 
 === DOWNLOAD MENU ===
-
+Find a way to show progress (maybe run the downloading as a subprocess and update a progress bar ?)
 =====================
 
 
 === META ===
-Find better screen switching method (dictionnary id:keyword with for loop to enable/disable all but new screen ?)
+Find better screen enabling/disabling method (dictionnary id:keyword with for loop to enable/disable all but new screen ?)
+Rename all events so they have a more clear and unique name to avoid overlap (BACK1, BACK2 etc is a problem)
 Find a good icon
 Support steam collections
-More safety checks between each menu
+More safety checks and input sanitization between each menu
 Convert to .exe file for easier installation / usage
 ============
