@@ -17,6 +17,7 @@ Find a way to show progress (maybe run the downloading as a subprocess and updat
 
 === META ===
 Find better screen enabling/disabling method (dictionnary id:keyword with for loop to enable/disable all but new screen ?)
+- toggleMenu(layout_key) function which disables all but the passed layout
 Rename all events so they have a more clear and unique name to avoid overlap (BACK1, BACK2 etc is a problem)
 Find a good icon
 Support steam collections

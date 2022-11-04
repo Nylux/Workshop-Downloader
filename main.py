@@ -15,9 +15,7 @@ import layouts.steamcmdMenu as steamcmdMenu
 
 
 
-
-
-version = '0.2.0'
+version = '0.2.1'
 sg.theme('DarkAmber')
 
 steamcmdDir = ""
@@ -34,8 +32,6 @@ def installSteamcmd(path):
     os.remove(path + "/steamcmd.zip")
     
     
-    
-
 def isValidInput(link):
     if validators.url(link) == True:
         return True
@@ -52,8 +48,6 @@ def downloadMods(modList):
             subprocess.run(cmd, shell=True)
             
             
-
-
 metaLayout = [
                 [sg.Column(mainMenu.mainMenuLayout, key='-MAIN-'),
                 sg.Column(inputMenu.inputMenuLayout, visible=False, key='-INPUT-'),
