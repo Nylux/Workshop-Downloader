@@ -1,4 +1,5 @@
 === MAIN MENU ===
+Implement steamCMD download
 Choosable appid (Dropdown of popular games and their appid for convenience ?)
 List of alleged compatible games : https://steamdb.info/sub/17906/apps/
 =================
