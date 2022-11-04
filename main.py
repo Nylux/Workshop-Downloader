@@ -38,9 +38,9 @@ def downloadMods(modList):
 
 
 metaLayout = [
-                [sg.Column(mainMenu.mainMenuLayout, key='-COL1-'),
-                sg.Column(inputMenu.inputMenuLayout, visible=False, key='-COL2-'),
-                sg.Column(downloadMenu.downloadMenuLayout, visible=False, key='-COL3-')]
+                [sg.Column(mainMenu.mainMenuLayout, key='-MAIN-'),
+                sg.Column(inputMenu.inputMenuLayout, visible=False, key='-INPUT-'),
+                sg.Column(downloadMenu.downloadMenuLayout, visible=False, key='-DOWNLOAD-')]
              ]
 
 window = sg.Window(title=('Workshop Downloader v' + version), layout=metaLayout, margins=(10, 10))
@@ -50,26 +50,26 @@ while True:
     if event == sg.WIN_CLOSED or 'Exit' in event:  # If window is closed or user presses any Exit button (events must be unique so it adds a 1 to the event name)
         break
     if event == 'Back':
-        window['-COL1-'].update(visible=True)
-        window['-COL2-'].update(visible=False)
-        window['-COL3-'].update(visible=False)
+        window['-MAIN-'].update(visible=True)
+        window['-INPUT-'].update(visible=False)
+        window['-DOWNLOAD-'].update(visible=False)
         window['-IN-'].update('')
         
     if event == 'Next':
-        steamcmdDir = values[0] # Grabbing values from the folder pickers
-        outputDir = values[1]
+        steamcmdDir = values[1] # Grabbing values from the folder pickers
+        outputDir = values[2]
         if steamcmdDir != "" and "steamcmd.exe" in os.listdir(steamcmdDir) and outputDir != "":
-            window['-COL1-'].update(visible=False)
-            window['-COL2-'].update(visible=True)
-            window['-COL3-'].update(visible=False)
+            window['-MAIN-'].update(visible=False)
+            window['-INPUT-'].update(visible=True)
+            window['-DOWNLOAD-'].update(visible=False)
         else:
             winsound.PlaySound('SystemAsterisk', winsound.SND_ASYNC)
             sg.popup('Please select a valid SteamCMD install directory and an output directory')
             
     if event == 'DOWNLOAD':
-        window['-COL1-'].update(visible=False)
-        window['-COL2-'].update(visible=False)
-        window['-COL3-'].update(visible=True)
+        window['-MAIN-'].update(visible=False)
+        window['-INPUT-'].update(visible=False)
+        window['-DOWNLOAD-'].update(visible=True)
         links = values['-IN-'].splitlines()
         downloadMods(links)
         playsound('beep.mp3')
