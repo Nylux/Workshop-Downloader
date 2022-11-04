@@ -1,6 +1,4 @@
-# Workshop-Downloader
-
-Usage :
+# Usage :
 
 pip install -r requirements.txt
 
