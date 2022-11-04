@@ -1,0 +1,24 @@
+=== MAIN MENU ===
+Add question mark icon / button to download steamcmd if the user wants to
+Choosable appid (Dropdown of popular games and their appid for convenience ?)
+=================
+
+
+=== INPUT MENU ===
+Support Import / Export input.txt ?
+====================
+
+
+
+=== DOWNLOAD MENU ===
+
+=====================
+
+
+=== META ===
+Rename keywords (eg. -COL1-) to match menu names
+Find better screen switching method (dictionnary id:keyword with for loop to enable/disable all but new screen ?)
+Find a good icon
+Support steam collections
+More safety checks between each menu
+============
