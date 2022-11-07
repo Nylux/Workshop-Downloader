@@ -7,6 +7,8 @@ import winsound
 import os
 import requests
 from zipfile import ZipFile
+import webbrowser
+
 
 import layouts.mainMenu as mainMenu
 import layouts.inputMenu as inputMenu
@@ -15,11 +17,12 @@ import layouts.steamcmdMenu as steamcmdMenu
 
 
 
-version = '0.2.1'
+version = '0.3.0'
 sg.theme('DarkAmber')
 
 steamcmdDir = ""
 outputDir = ""
+appid = ""
 links = []
 
 def installSteamcmd(path):
@@ -44,7 +47,7 @@ def downloadMods(modList):
             x.translate(dict.fromkeys(map(ord, whitespace)))
             workshopId = x.split("=")[-1]
             workshopId = workshopId.strip('\n')
-            cmd = "{steamcmdDirectory}\\steamcmd.exe +force_install_dir {outputDirectory} +login anonymous +workshop_download_item 294100 {id} +quit".format(steamcmdDirectory=steamcmdDir, outputDirectory=outputDir, id=workshopId)
+            cmd = "{steamcmdDirectory}\\steamcmd.exe +force_install_dir {outputDirectory} +login anonymous +workshop_download_item {appID} {id} +quit".format(steamcmdDirectory=steamcmdDir, outputDirectory=outputDir, appID=appid, id=workshopId)
             subprocess.run(cmd, shell=True)
             
             
@@ -72,14 +75,15 @@ while True:
     if event == 'Next':
         steamcmdDir = values[1] # Grabbing values from the folder pickers # THIS IS BAD, SHOULD USE KEYS INSTEAD
         outputDir = values[2]
-        if steamcmdDir != "" and "steamcmd.exe" in os.listdir(steamcmdDir) and outputDir != "":
+        appid = values['-APPID-']
+        if steamcmdDir != "" and "steamcmd.exe" in os.listdir(steamcmdDir) and outputDir != "" and appid.isnumeric() == True:
             window['-MAIN-'].update(visible=False)
             window['-INPUT-'].update(visible=True)
             window['-DOWNLOAD-'].update(visible=False)
             window['-STEAMCMDMENU-'].update(visible=False)
         else:
             winsound.PlaySound('SystemAsterisk', winsound.SND_ASYNC)
-            sg.popup('Please select a valid SteamCMD install directory and an output directory')
+            sg.popup('Please select a valid SteamCMD install directory, output directory and AppID.', title='Error')
             
     if event == 'DOWNLOAD':
         window['-MAIN-'].update(visible=False)
@@ -110,5 +114,8 @@ while True:
         else:
             winsound.PlaySound('SystemAsterisk', winsound.SND_ASYNC)
             sg.popup('Please select an install directory for SteamCMD')
+            
+    if event == '-APPID_HELP-':
+        webbrowser.get('windows-default').open("https://steamdb.info/search/")
             
 window.close()

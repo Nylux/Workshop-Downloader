@@ -1,6 +1,8 @@
 === MAIN MENU ===
-Choosable appid (Dropdown of popular games and their appid for convenience ?)
-List of alleged compatible games : https://steamdb.info/sub/17906/apps/
+Wrap user input checks in function instead of clogging event list
+Dropdown next to Input to show top100 workshop enabled games
+- Find data for it
+- Make the input a fuzzy search instead of a dropdown ?
 =================
 
 
